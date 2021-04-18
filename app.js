@@ -9,6 +9,7 @@ var config = require('./config');
 const authRoutes = require('./routes/auth');
 const updateRouts = require('./routes/update');
 const thumbnailRoutes = require('./routes/thumbnail');
+const jsonpatchRoutes= require('./routes/jsonPatch');
 
 
 const app = express();
@@ -51,9 +52,7 @@ app.use('/users', authRoutes)
 // Protected urls
 app.use('/update', validateUser, updateRouts)
 app.use('/thumbnail', validateUser, thumbnailRoutes)
-
-
-
+app.use('/patch', validateUser, jsonpatchRoutes)
 
 
 app.listen(config.LISTEN_PORT, () => {
