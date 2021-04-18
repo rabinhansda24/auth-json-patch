@@ -33,11 +33,14 @@ Public endpoint
 
 Protected endpoint
 
+All protected endpoint required 'Authorization' in header.
+
+
 1. Update address
 
   Endpoint: /update/address
 
-  Headers: Authorization: <token>
+  Headers: Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwN2MxYTljOTk3NjJhZGZmMGRjNDMyYyIsImlhdCI6MTYxODc0NjAxMywiZXhwIjoxNjE4NzQ5NjEzfQ.DuPEGeiJApRgw7N6Uo0FvkKqw4m5yOo5IO6tBrbnj1A
 
   Payload: {
         "address": "Bangalore, Koramangala"
@@ -59,7 +62,7 @@ Protected endpoint
 
   Endpoint: /thumbnail/generate
 
-  Headers: Authorization: <token>
+  Headers: Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwN2MxYTljOTk3NjJhZGZmMGRjNDMyYyIsImlhdCI6MTYxODc0NjAxMywiZXhwIjoxNjE4NzQ5NjEzfQ.DuPEGeiJApRgw7N6Uo0FvkKqw4m5yOo5IO6tBrbnj1A
 
   Payload: {
         "url": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/smartest-dog-breeds-1553287693.jpg"
@@ -72,7 +75,7 @@ Protected endpoint
 
   Endpoint: /patch
 
-  Headers: Authorization: <token>
+  Headers: Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwN2MxYTljOTk3NjJhZGZmMGRjNDMyYyIsImlhdCI6MTYxODc0NjAxMywiZXhwIjoxNjE4NzQ5NjEzfQ.DuPEGeiJApRgw7N6Uo0FvkKqw4m5yOo5IO6tBrbnj1A
 
   Payload: {
         "document": {"firstName": "Albert", "contactDetails": {"phoneNumbers": []}},
@@ -82,7 +85,7 @@ Protected endpoint
             {"op": "add", "path": "/contactDetails/phoneNumbers/0", "value": {"number": "9874563210"}}
         ]
     }
-    
+
   Response: {
         "success": true,
         "document": {
