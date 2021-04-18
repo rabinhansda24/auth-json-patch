@@ -8,6 +8,7 @@ var path = require('path');
 var config = require('./config');
 const authRoutes = require('./routes/auth');
 const updateRouts = require('./routes/update');
+const thumbnailRoutes = require('./routes/thumbnail');
 
 
 const app = express();
@@ -33,7 +34,6 @@ app.get('/', function(req, res){
 });
 
 const validateUser = (req, res, next) => {
-    console.log(req.headers);
     jwt.verify(req.headers['authorization'], config.TOKEN_SECRET, (err, decoded) => {
         if (err) {
             res.json({status:"error", message: err.message, data:null});
@@ -50,6 +50,7 @@ app.use('/users', authRoutes)
 
 // Protected urls
 app.use('/update', validateUser, updateRouts)
+app.use('/thumbnail', validateUser, thumbnailRoutes)
 
 
 
