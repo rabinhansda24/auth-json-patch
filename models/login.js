@@ -14,6 +14,11 @@ const LoginSchema = new Schema({
         type: String,
         trim: true,
         required: true
+    },
+    address: {
+        type: String,
+        trim: true,
+        
     }
 })
 

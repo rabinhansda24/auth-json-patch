@@ -15,5 +15,18 @@ module.exports = {
             }
         })
         
+    },
+    saveAddress: (req, res, next) => {
+        const userId = req.body.userId;
+        let filter = {_id: userId}
+        let update = {address: req.body.address}
+        loginModel.findOneAndUpdate(filter, update, {new: true}, (err, record) => {
+            if(err) {
+                console.log(err);
+                next(err)
+            } else {
+                res.json({success: true, data: record})
+            }
+        })
     }
 }
